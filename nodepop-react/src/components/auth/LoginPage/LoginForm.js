@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import storage from '../../../utils/storage';
 
 import Button from '../../shared/Button';
 import FormField from '../../shared/FormField';
@@ -19,6 +20,8 @@ function LoginForm({ onSubmit, isLoading }) {
   };
 
   const { email, password, session } = credentials;
+  credentials.email = storage.get('email');
+  credentials.password = storage.get('password');
 
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
@@ -27,7 +30,7 @@ function LoginForm({ onSubmit, isLoading }) {
         name="email"
         label="email"
         className="loginForm-field"
-        value={email}
+        value={credentials.email}
         onChange={handleChange}
         autofocus
       />
@@ -36,7 +39,7 @@ function LoginForm({ onSubmit, isLoading }) {
         name="password"
         label="password"
         className="loginForm-field"
-        value={password}
+        value={credentials.password}
         onChange={handleChange}
       />
       <FormField

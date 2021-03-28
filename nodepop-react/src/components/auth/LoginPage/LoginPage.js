@@ -34,7 +34,6 @@ function LoginPage() {
   });
 
   const handleSubmit = async credentials => {
-    console.log(credentials);
     resetError();
     setIsLoading(true);
     try {
