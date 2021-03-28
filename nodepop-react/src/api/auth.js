@@ -8,6 +8,10 @@ export const login = credentials => {
       storage.set('email', credentials.email);
       storage.set('password', credentials.password);
       storage.set('auth', accessToken);
+    } else {
+      storage.remove('email');
+      storage.remove('password');
+      storage.remove('auth');
     };
   });
 };
