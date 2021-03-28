@@ -34,6 +34,7 @@ function LoginPage() {
   });
 
   const handleSubmit = async credentials => {
+    console.log(credentials);
     resetError();
     setIsLoading(true);
     try {
@@ -48,7 +49,7 @@ function LoginPage() {
 
   return (
     <div className="loginPage">
-      <h1 className="loginPage-title">Log in to Twitter</h1>
+      <h1 className="loginPage-title">Log in to NodePop React KC</h1>
       <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
       {error && (
         <div onClick={resetError} className="loginPage-error">

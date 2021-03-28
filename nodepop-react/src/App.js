@@ -33,7 +33,7 @@ function App({ isInitiallyLogged }) {
             <LoginPage />
           </Route>
           <Route exact path="/">
-           
+            <LoginPage />
           </Route>
           <Route path="/404">
             <div

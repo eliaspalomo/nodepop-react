@@ -8,25 +8,26 @@ import useForm from '../../../hooks/useForm';
 import './LoginForm.css';
 
 function LoginForm({ onSubmit, isLoading }) {
-  const [credentials, handleChange, handleSubmit] = useForm({
-    username: '',
+  const [credentials, handleChange, handleChangeChecked, handleSubmit] = useForm({
+    email: '',
     password: '',
+    session: false,
   });
 
   const handleFormSubmit = ev => {
     onSubmit(credentials);
   };
 
-  const { username, password } = credentials;
+  const { email, password, session } = credentials;
 
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <FormField
         type="text"
-        name="username"
-        label="phone, email or username"
+        name="email"
+        label="email"
         className="loginForm-field"
-        value={username}
+        value={email}
         onChange={handleChange}
         autofocus
       />
@@ -38,11 +39,19 @@ function LoginForm({ onSubmit, isLoading }) {
         value={password}
         onChange={handleChange}
       />
+      <FormField
+        type="checkbox"
+        name="session"
+        label="session"
+        className="loginForm-field"
+        checked={session}
+        onChange={handleChangeChecked}
+      />
       <Button
         type="submit"
         className="loginForm-submit"
         variant="primary"
-        disabled={isLoading || !username || !password}
+        disabled={isLoading || !email || !password}
       >
         Log in
       </Button>

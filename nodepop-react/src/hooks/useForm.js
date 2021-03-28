@@ -10,6 +10,13 @@ const useForm = initialValue => {
     }));
   };
 
+  const handleChangeChecked = event => {
+    setValue(oldValue => ({
+      ...oldValue,
+      [event.target.name]: event.target.checked,
+    }));
+  };
+
   const handleSubmit = afterPreventDefault => {
     return ev => {
       ev.preventDefault();
@@ -17,7 +24,7 @@ const useForm = initialValue => {
     };
   };
 
-  return [value, handleChange, handleSubmit];
+  return [value, handleChange, handleChangeChecked, handleSubmit];
 };
 
 export default useForm;
