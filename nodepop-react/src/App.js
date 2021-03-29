@@ -30,12 +30,12 @@ function App({ isInitiallyLogged }) {
       <AuthContextProvider value={authValue}>
         <Switch>
           <PrivateRoute path="/advert/:advertId">
-            {routeProps => <AdvertsPage ref={ref} {...routeProps} />}
+            {routeProps => <AdvertDetailPage ref={ref} {...routeProps} />}
           </PrivateRoute>
           <PrivateRoute path="/adverts">
             <AdvertsPage />
           </PrivateRoute>
-          <PrivateRoute path="/advert">
+          <PrivateRoute path="/newadvert">
             <NewAdvertPage />
           </PrivateRoute>
 

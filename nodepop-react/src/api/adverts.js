@@ -1,9 +1,9 @@
 import client from './client';
 
-const advertsBaseUrl = '/api';
+const advertsBaseUrl = '/api/v1';
 
 export const getLatestAdverts = () => {
-  const url = `${advertsBaseUrl}/adverts?_expand=user&_embed=likes&_sort=updatedAt&_order=desc`;
+  const url = `${advertsBaseUrl}/adverts`;
   return client.get(url);
 };
 
@@ -15,14 +15,4 @@ export const getAdvertDetail = advertId => {
 export const createAdvert = advert => {
   const url = `${advertsBaseUrl}/adverts`;
   return client.post(url, advert);
-};
-
-export const createLike = advertId => {
-  const url = `${advertsBaseUrl}/adverts/${advertId}/likes`;
-  return client.post(url);
-};
-
-export const deleteLike = likeId => {
-  const url = `${advertsBaseUrl}/likes/${likeId}`;
-  return client.delete(url);
 };

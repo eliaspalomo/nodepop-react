@@ -8,7 +8,7 @@ import './Header.css';
 const Header = ({ className, ...props }) => {
   return (
     <header className={classNames('header', className)} {...props}>
-      <Link to="/">
+      <Link to="/adverts">
         <div className="header-logo">
           
         </div>
@@ -17,11 +17,11 @@ const Header = ({ className, ...props }) => {
         <Button
           as={NavLink}
           activeClassName="active"
-          to="/advert"
+          to="/newadvert"
           variant="primary"
           className="header-button"
         >
-          Cambiar
+          Advert
         </Button>
         <AuthButton className="header-button" />
       </nav>

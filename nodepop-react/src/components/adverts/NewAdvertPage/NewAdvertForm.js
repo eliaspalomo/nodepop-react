@@ -1,50 +1,51 @@
 import React from 'react';
+import Button from '../../shared/Button';
+import FormField from '../../shared/FormField';
 import useForm from '../../../hooks/useForm';
-import { Button, Textarea } from '../../shared';
-
-const MAX_CHARACTERS = 280;
 
 const NewAdvertForm = ({ onSubmit }) => {
-  const [advert, handleChange, handleSubmit] = useForm({ content: '' });
-  const textareaRef = React.useRef(null);
-
-  React.useEffect(() => {
-    textareaRef.current.focus();
-  }, []);
-
+  const [advert, handleChange, handleChangeChecked, handleSubmit] = useForm({ content: '' });
+  
   const afterPreventDefault = ev => {
     console.log(ev);
     onSubmit(advert);
   };
 
-  const { content } = advert;
+  const {name, sale, price, tags, photo } = advert;
   const handle = handleSubmit(afterPreventDefault);
-
-  const characters = React.useMemo(
-    () => `${content.length} / ${MAX_CHARACTERS}`,
-    [content]
-  );
 
   return (
     <form onSubmit={handle}>
-      <Textarea
-        className="newAdvertPage-textarea"
-        name="content"
-        placeholder="Advert"
-        maxLength={MAX_CHARACTERS}
-        value={content}
+      <FormField
+        type="text"
+        name="name"
+        label="Name"
+        className="advertForm-field"
         onChange={handleChange}
-        ref={textareaRef}
+        autofocus
+      />
+      <FormField
+        type="checkbox"
+        name="sale"
+        label="Sale?"
+        className="advertForm-field"
+        onChange={handleChangeChecked}
+      />
+      <FormField
+        type="number"
+        name="price"
+        label="Price"
+        className="loginForm-field"
+        onChange={handleChange}
       />
       <div className="newAdvertPage-footer">
-        <span className="newAdvertPage-characters">{characters}</span>
         <Button
           type="submit"
           className="newAdvertPage-submit"
           variant="primary"
-          disabled={!content}
+          disabled={!name || !price || !tags}
         >
-          Let's go!
+          Add advert
         </Button>
       </div>
     </form>

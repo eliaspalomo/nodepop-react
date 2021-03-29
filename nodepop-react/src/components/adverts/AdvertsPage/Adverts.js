@@ -4,12 +4,6 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import './Adverts.css';
 
 const Advert = ({ content, updatedAt, user, likes }) => {
-  const handleLike = ev => {
-    ev.preventDefault();
-    // Manage like/unlike flow
-    console.log(ev);
-  };
-
   return (
     <article className="advert bordered">
       <div className="left">

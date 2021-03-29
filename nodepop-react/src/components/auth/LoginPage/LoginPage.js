@@ -1,5 +1,4 @@
 import React from 'react';
-import T from 'prop-types';
 import LoginForm from './LoginForm';
 import { login } from '../../../api/auth';
 
