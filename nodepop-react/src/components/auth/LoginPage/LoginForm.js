@@ -9,9 +9,12 @@ import useForm from '../../../hooks/useForm';
 import './LoginForm.css';
 
 function LoginForm({ onSubmit, isLoading }) {
+  const initEmail = (storage.get('email')?storage.get('email'):'');
+  const initPassword = (storage.get('password')?storage.get('password'):'')
+  
   const [credentials, handleChange, handleChangeChecked, handleSubmit] = useForm({
-    email: '',
-    password: '',
+    email: initEmail,
+    password: initPassword,
     session: false,
   });
 
@@ -20,9 +23,7 @@ function LoginForm({ onSubmit, isLoading }) {
   };
 
   const { email, password, session } = credentials;
-  credentials.email = storage.get('email');
-  credentials.password = storage.get('password');
-
+  
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <FormField
@@ -30,7 +31,7 @@ function LoginForm({ onSubmit, isLoading }) {
         name="email"
         label="email"
         className="loginForm-field"
-        value={credentials.email}
+        value={email}
         onChange={handleChange}
         autofocus
       />
@@ -39,7 +40,7 @@ function LoginForm({ onSubmit, isLoading }) {
         name="password"
         label="password"
         className="loginForm-field"
-        value={credentials.password}
+        value={password}
         onChange={handleChange}
       />
       <FormField

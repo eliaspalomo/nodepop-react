@@ -21,7 +21,7 @@ function LoginPage() {
   React.useEffect(() => {
     if (isLogged.current) {
       onLogin();
-      const { from } = location.state || { from: { pathname: '/' } };
+      const { from } = location.state || { from: { pathname: '/adverts' } };
       
       history.replace(from);
     }
