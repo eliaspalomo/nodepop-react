@@ -1,19 +1,20 @@
 import React from 'react';
 import Button from '../../shared/Button';
 import FormField from '../../shared/FormField';
+import SelectedTag from '../../shared/SelectedTag';
 import useForm from '../../../hooks/useForm';
 
 const NewAdvertForm = ({ onSubmit }) => {
-  const [advert, handleChange, handleChangeChecked, handleSubmit] = useForm({ content: '' });
+  const [advert, handleChange, handleChangeChecked, handleChangeSelect, handleSubmit] = useForm({});
   
   const afterPreventDefault = ev => {
-    console.log(ev);
     onSubmit(advert);
   };
 
   const {name, sale, price, tags, photo } = advert;
-  const handle = handleSubmit(afterPreventDefault);
 
+  const handle = handleSubmit(afterPreventDefault);
+  
   return (
     <form onSubmit={handle}>
       <FormField
@@ -31,11 +32,23 @@ const NewAdvertForm = ({ onSubmit }) => {
         className="advertForm-field"
         onChange={handleChangeChecked}
       />
+      <SelectedTag
+        name="tags"
+        label="Tags"
+        className="selectedTag-field"
+        onChange={handleChangeSelect}
+      />
       <FormField
         type="number"
         name="price"
         label="Price"
         className="loginForm-field"
+        onChange={handleChange}
+      />
+      <input 
+        type="file"
+        name="photo"
+        accept="image/*"
         onChange={handleChange}
       />
       <div className="newAdvertPage-footer">

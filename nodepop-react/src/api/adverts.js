@@ -14,5 +14,6 @@ export const getAdvertDetail = advertId => {
 
 export const createAdvert = advert => {
   const url = `${advertsBaseUrl}/adverts`;
+  console.log(advert)
   return client.post(url, advert);
 };

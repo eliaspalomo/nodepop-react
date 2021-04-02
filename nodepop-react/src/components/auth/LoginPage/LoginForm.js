@@ -12,7 +12,7 @@ function LoginForm({ onSubmit, isLoading }) {
   const initEmail = (storage.get('email')?storage.get('email'):'');
   const initPassword = (storage.get('password')?storage.get('password'):'')
   
-  const [credentials, handleChange, handleChangeChecked, handleSubmit] = useForm({
+  const [credentials, handleChange, handleChangeChecked, handleChangeSelect, handleSubmit] = useForm({
     email: initEmail,
     password: initPassword,
     session: false,

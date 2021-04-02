@@ -10,6 +10,20 @@ const useForm = initialValue => {
     }));
   };
 
+  const handleChangeSelect = event => {
+    console.log(event);
+    const values = [];
+
+    event.map(tag => {
+      values.push(tag.value)
+      });
+
+    setValue(oldValue => ({
+      ...oldValue,
+      tags: values}))
+
+  };
+
   const handleChangeChecked = event => {
     setValue(oldValue => ({
       ...oldValue,
@@ -24,7 +38,7 @@ const useForm = initialValue => {
     };
   };
 
-  return [value, handleChange, handleChangeChecked, handleSubmit];
+  return [value, handleChange, handleChangeChecked, handleChangeSelect, handleSubmit];
 };
 
 export default useForm;
