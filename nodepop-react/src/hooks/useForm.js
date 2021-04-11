@@ -11,7 +11,6 @@ const useForm = initialValue => {
   };
 
   const handleChangeSelect = event => {
-    console.log(event);
     const values = [];
 
     event.map(tag => {

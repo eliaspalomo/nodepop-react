@@ -31,9 +31,6 @@ const Advert = ({ name, sale, price, tags, createdAt}) => {
 };
 
 export const advertType = {
-  user: T.shape({ name: T.string.isRequired, username: T.string.isRequired })
-    .isRequired,
-  updatedAt: T.string.isRequired,
   name: T.string,
   sale: T.bool,
   price: T.number, 

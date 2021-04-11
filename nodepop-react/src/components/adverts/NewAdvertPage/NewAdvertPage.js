@@ -4,7 +4,6 @@ import Layout from '../../layout/Layout';
 import NewAdvertForm from './NewAdvertForm';
 import { createAdvert } from '../../../api/adverts';
 
-import './NewAdvertPage.css';
 import { Redirect } from 'react-router';
 
 const NewAdvertPage = props => {

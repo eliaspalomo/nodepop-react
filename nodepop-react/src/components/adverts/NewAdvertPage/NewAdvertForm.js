@@ -10,9 +10,8 @@ const NewAdvertForm = ({ onSubmit }) => {
   const afterPreventDefault = ev => {
     onSubmit(advert);
   };
-
   const {name, sale, price, tags, photo } = advert;
-
+  
   const handle = handleSubmit(afterPreventDefault);
   
   return (

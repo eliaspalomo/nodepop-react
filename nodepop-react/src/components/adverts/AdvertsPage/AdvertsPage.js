@@ -23,7 +23,7 @@ const AdvertsPage = ({ className, ...props }) => {
   React.useEffect(() => {
     getLatestAdverts().then(setAdverts);
   }, []);
-
+  
   return (
     <Layout title="Advert..." {...props}>
       <div className={classnames(scopedStyles.advertsPage, className)}>
