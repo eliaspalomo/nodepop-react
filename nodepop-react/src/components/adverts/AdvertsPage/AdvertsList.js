@@ -3,6 +3,7 @@ import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import Advert, { advertType } from './Adverts';
 
+
 const AdvertsList = ({ adverts }) => {
   return (
     <ul className="advertsList">

@@ -7,6 +7,11 @@ export const getLatestAdverts = () => {
   return client.get(url);
 };
 
+export const getLatestAdvertsFilter = advert => {
+  const url = `${advertsBaseUrl}/adverts?${advert}`;
+  return client.get(url);
+};
+
 export const getAdvertDetail = advertId => {
   const url = `${advertsBaseUrl}/adverts/${advertId}`;
   return client.get(url);
